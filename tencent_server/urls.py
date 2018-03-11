@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 import blog.views
-import wx.urls
+import wx.views
 
 urlpatterns = [
     path('', blog.views.main_page),
-    path('wx/', include(wx.urls)),
+    path('wx', wx.views.wx),
     path('admin/', admin.site.urls),
 ]

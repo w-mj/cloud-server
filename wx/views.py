@@ -1,10 +1,14 @@
 import hashlib
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
 from .secret import secret
+import xml.etree.ElementTree as ET
+import time
 
 def checksignature(request):
-    if request.method != 'GET':
-        return HttpResponse('only get method is available for check signature')
+    # if request.method != 'GET':
+    #     return HttpResponse('only get method is available for check signature')
     # print(request.GET)
     signature = request.GET.get('signature')
     timestamp = request.GET.get('timestamp')
@@ -19,3 +23,29 @@ def checksignature(request):
         if s == signature:
             return HttpResponse(echostr)
     return HttpResponse('Fail')
+
+
+def reply(request):
+    data = request.body
+    print(data)
+    tree = ET.fromstring(data)
+    msg = {}
+    for t in tree:
+        print(t.tag, t.text)
+        msg[t.tag] = t.text
+
+    response = '<xml> ' \
+               '<ToUserName>%s</ToUserName> ' \
+               '<FromUserName>%s</FromUserName> ' \
+               '<CreateTime>%d</CreateTime> ' \
+               '<MsgType>text</MsgType> <Content>' \
+               '%s</Content>' \
+               '</xml> ' % (msg['FromUserName'], msg['ToUserName'], time.time(), msg['Content'])
+    return HttpResponse(response)
+
+@csrf_exempt
+def wx(request):
+    if request.method == 'GET':
+        return checksignature(request)
+    elif request.method == 'POST':
+        return reply(request)

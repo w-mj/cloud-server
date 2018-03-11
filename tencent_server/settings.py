@@ -30,7 +30,7 @@ if socket.gethostname() == 'MingjianWang':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['123.206.57.166']
+ALLOWED_HOSTS = ['123.206.57.166', '127.0.0.1']
 
 
 # Application definition
