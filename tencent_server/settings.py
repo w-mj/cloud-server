@@ -30,7 +30,7 @@ if socket.gethostname() == 'MingjianWang':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['123.206.57.166', '127.0.0.1']
+ALLOWED_HOSTS = ['123.206.57.166', '127.0.0.1', 'alphamj.cn']
 
 
 # Application definition
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'tencent_server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR + '/blog/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

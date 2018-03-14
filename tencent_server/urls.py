@@ -22,5 +22,6 @@ import wx.views
 urlpatterns = [
     path('', blog.views.main_page),
     path('wx', wx.views.wx),
+    path('forbidzh', blog.views.forbid_zhihu),
     path('admin/', admin.site.urls),
 ]

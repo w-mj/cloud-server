@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好好学习，不刷知乎</title>
+</head>
+<body>
+<h1>现在是学习时间，请好好学习，不要刷知乎。</h1>
+<h4>你只有在每天的12:00~14:00和20:00~24:00可以刷知乎</h4>
+<div>倒计时</div>
+<div id="time-out">24:00:00</div>
+</body>
+<style>
+    body {
+        text-align: center;
+    }
+    h1 {
+        color: red;
+    }
+</style>
+<script>
+    (function() {
+    var time = new Date();
+    hour = time.getHours();
+    minute = time.getMinutes();
+    second = time.getSeconds();
+    if((hour >= 12 && hour < 14) || (hour >= 20))
+        window.location = "http://zhihu.com";
+    t = 12 - hour;
+    if(t < 0)
+        t = 20 - hour;
+    hour =  t - 1;
+    minute = 60 - minute - 1;
+    second = 60 - second - 1;
+    var p = document.getElementById("time-out");
+    var set = setInterval(function() {
+        out = '';
+        if(hour < 10)
+            out += '0' + hour;
+        else
+            out += hour;
+        out += ':';
+        if(minute < 10)
+            out += '0' + minute;
+        else
+            out += minute;
+        out += ':';
+        if(second < 10)
+            out += '0' + second;
+        else
+            out += second;
+        p.innerHTML = out;
+        second--;
+        if(second === -1) {
+            second = 59;
+            minute--;
+        }
+        if(minute === 0) {
+            minute = 59;
+            hour = 0;
+        }
+        if(hour === 0 && minute === 0 && second === 0) {
+            clearInterval(set);
+            window.location = "http://zhihu.com";
+        }
+    }, 1000);
+    })()
+</script>
+</html>

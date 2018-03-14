@@ -33,7 +33,8 @@ def reply(request):
     for t in tree:
         print(t.tag, t.text)
         msg[t.tag] = t.text
-
+    if msg['MsgType'] != 'text:':
+        msg['Content'] = '不支持的消息类型: %s' % msg['MsgType']
     response = '<xml> ' \
                '<ToUserName>%s</ToUserName> ' \
                '<FromUserName>%s</FromUserName> ' \
