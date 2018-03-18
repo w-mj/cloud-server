@@ -1,5 +1,9 @@
 wx/secret.py
+
 tencent_server/SECRET_KEY.py
+
 */__pycache__/
 .idea/
 *.sqlite3
+
+static
