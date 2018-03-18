@@ -1,0 +1,7 @@
+<ul class="collection">
+    {% for article in articles %}
+        <li class="collection-item">
+            <a href="/article/{{ article.id }}">{{ article.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

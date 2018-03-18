@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import blog.urls
 import blog.views
 import wx.views
 
 urlpatterns = [
-    path('', blog.views.main_page),
+    path('', blog.views.index),
+    path('article', include(blog.urls)),
     path('wx', wx.views.wx),
     path('forbidzh', blog.views.forbid_zhihu),
     path('admin/', admin.site.urls),

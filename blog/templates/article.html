@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block maincontent %}
+    <h3>{{ article.title }}</h3>
+    {% for i in article.classification.all %}
+        <div class="chip">{{ i.name }}</div>
+    {% endfor %}
+    <hr>
+    <p class="article">{{ article.content|linebreaksbr }}</p>
+{% endblock %}
+

@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block maincontent %}
+    {% for article in articles %}
+        <h3>{{ article.title }}</h3>
+        <p class="article-preview">{{ article.content|truncatechars_html:200 }}</p>
+        <a href="article/{{ article.id }}" class="show-article-link">查看全文</a>
+        <hr>
+    {% endfor %}
+{% endblock %}

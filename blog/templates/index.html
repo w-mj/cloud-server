@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "css/materialize.css" %}">
+    <link rel="stylesheet" href="{% static "css/google_icons.css" %}">
+    <link rel="stylesheet" href="{% static "css/article.css" %}">
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<div class="container">
+    {% include "header.html" %}
+    <div class="row">
+        <div class="col m3 s12">
+            {% load static %}
+            <div class="left-panel">
+
+                <div class="center-align">
+                    <img src="{% static "img/me.jpg" %}" class="circle" width="250px">
+                    <br>
+                    <i>About Me</i>
+                </div>
+                <hr>
+                {% include navigation %}
+                <hr>
+            </div>
+        </div>
+            <div class="col m9 s12">
+                {% block maincontent %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
