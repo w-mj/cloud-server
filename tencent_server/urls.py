@@ -19,11 +19,13 @@ from django.urls import path, include
 import blog.urls
 import blog.views
 import wx.views
+import file.views
 
 urlpatterns = [
     path('', blog.views.index),
     path('article', include(blog.urls)),
     path('wx', wx.views.wx),
     path('forbidzh', blog.views.forbid_zhihu),
+    path('file/<str:path>', file.views.big_file_download),
     path('admin/', admin.site.urls),
 ]

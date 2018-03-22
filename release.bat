@@ -1,1 +1,1 @@
-"C:\Program Files\Git\usr\bin\scp.exe" -i C:\Users\wming\.ssh\Login_tencent -r ../tencent_server/ root@123.206.57.166:/web-server/
+"D:\Program Files\Git\usr\bin\scp.exe" -i "C:\Users\Mingjian W\.ssh\Login_tencent" -r ../tencent_server/ root@123.206.57.166:/web-server/tencent_server
