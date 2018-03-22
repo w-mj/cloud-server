@@ -1,3 +1,5 @@
+import socket
+
 from django.shortcuts import render
 from django.http import StreamingHttpResponse
 from django.http import HttpResponse
@@ -17,7 +19,11 @@ def big_file_download(request, path):
                     break
         return None
 
-    base_path = '/home/wmj/'
+    if socket.gethostname() == 'DESKTOP-589NS7B':
+        base_path = "D:/"
+    else:
+        base_path = '/home/wmj/'
+
     the_file_name = base_path + path
     try:
         response = StreamingHttpResponse(file_iterator(the_file_name))

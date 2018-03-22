@@ -1,3 +1,5 @@
-"D:\Program Files\cwRsync_5.5.0_x86_Free\bin\rsync.exe" -e "'D:\Program Files\Git\usr\bin\ssh.exe'" -r ../tencent_server/ wmj@123.206.57.166:/web-server/
-"D:\Program Files\Git\usr\bin\ssh.exe" wmj@123.206.57.166 "uwsgi --stop /web-server/uwsgi.pid"
-"D:\Program Files\Git\usr\bin\ssh.exe" wmj@123.206.57.166 "uwsgi --ini /web-server/uwsgi.ini"
+"D:\Program Files\Git\usr\bin\ssh.exe" wmj@123.206.57.166 "uwsgi --stop /web-server/cloud-server/uwsgi.pid"
+"D:\Program Files\Git\usr\bin\ssh.exe" wmj@123.206.57.166 "cd /web-server/cloud-server/ && git pull origin master"
+"D:\Program Files\Git\usr\bin\scp.exe" wx/secret.py wmj@123.206.57.166:/web-server/cloud-server/wx/secret.py
+"D:\Program Files\Git\usr\bin\scp.exe" tencent_server/SECRET_KEY.py wmj@123.206.57.166:/web-server/cloud-server/tencent_server/SECRET_KEY.py
+"D:\Program Files\Git\usr\bin\ssh.exe" wmj@123.206.57.166 "uwsgi --ini /web-server/cloud-server/uwsgi.ini"
