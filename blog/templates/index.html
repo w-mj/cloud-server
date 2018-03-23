@@ -10,17 +10,14 @@
 </head>
 <body>
 <div class="container">
-    {% include "header.html" %}
+    <div class="col m12 s12">{% include "header.html" %}</div>
+
     <div class="row">
         <div class="col m3 s12">
             {% load static %}
             <div class="left-panel">
-
-                <div class="center-align">
-                    <img src="{% static "img/me.jpg" %}" class="circle" width="250px">
-                    <br>
-                    <i>About Me</i>
-                </div>
+                <img src="{% static "img/me.jpg" %}" class="circle responsive-img center-align">
+                <br>
                 <hr>
                 {% include navigation %}
                 <hr>

@@ -20,11 +20,13 @@ def show_article(request, article_id):
     classifications = Classifications.objects.all()
 
     return render(request, 'article.html', {'navigation': 'nav_classification.html',
-                                            'article': article, 'nav_classifications': classifications})
+                                            'article': article, 'nav_classifications': classifications,
+                                            'classification_name': '文章分类'})
 
 
 def show_article_as_classification(request, name):
     classification = Classifications.objects.get(name=name)
     articles = classification.article_set.all()
     return render(request, 'article_preview.html',
-                  {'navigation': 'nav_articles.html', 'articles': articles, 'preview': True, 'nav_articles': articles})
+                  {'navigation': 'nav_articles.html', 'articles': articles, 'preview': True, 'nav_articles': articles,
+                   'classification_name': '全部文章'})
