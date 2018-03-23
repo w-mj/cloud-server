@@ -22,6 +22,7 @@ import file.views
 
 urlpatterns = [
     path('', blog.views.index),
+    path('post/', blog.views.post),
     path('article/<str:article_id>/', blog.views.show_article),
     path('classification/<str:name>', blog.views.show_article_as_classification),
     path('wx', wx.views.wx),

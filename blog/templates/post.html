@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block maincontent %}
+    <script language="JavaScript" src="{% static "js/post.js" %}"></script>
+    <div id="add-cls-modal" class="modal">
+        <div class="modal-content">
+            <h4>添加新分类</h4>
+            <label for="new-cls-name">新分类名</label><input id="new-cls-name">
+        </div>
+        <div class="modal-footer">
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat" onclick="add_new_cls($('#new-cls-name').val())">确定</a>
+        </div>
+    </div>
+    <h5> 发布一篇文章 </h5>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col m8 s12">
+                <input placeholder="文章标题" id="title" name="title" type="text">
+            </div>
+            <div class="input-field col m4 s12">
+                <a class='dropdown-button btn' href='#' data-activates='dropdown1'>选择分类</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    {% for cls in classifications %}
+                        <li><a onclick="on_add_cls_click('{{ cls.name }}')">{{ cls.name }}</a></li>
+                    {% endfor %}
+                    <li><a data-target="add-cls-modal">添加新分类</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="classifications"></div>
+
+        <div class="input-field">
+            <textarea id="content" placeholder="正文" class="materialize-textarea" name="context"></textarea>
+        </div>
+        <button type="submit" class="waves-effect waves-light btn">发布</button>
+
+    </form>
+    <style>
+        #content {
+            min-height: 400px;
+            height: auto;
+        }
+    </style>
+{% endblock %}
