@@ -9,7 +9,7 @@ def forbid_zhihu(request):
 
 
 def index_redirect(request):
-    return HttpResponseRedirect('http://alphamj.cn/')
+    return HttpResponseRedirect('http://blog.alphamj.cn/')
 
 
 def index(request):
