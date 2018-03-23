@@ -14,16 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-import blog.urls
 import blog.views
 import wx.views
 import file.views
 
 urlpatterns = [
     path('', blog.views.index),
-    path('article', include(blog.urls)),
+    path('article/<str:article_id>/', blog.views.show_article),
     path('wx', wx.views.wx),
     path('forbidzh', blog.views.forbid_zhihu),
     path('file/<str:path>', file.views.big_file_download),
