@@ -23,6 +23,7 @@ import file.views
 urlpatterns = [
     path('', blog.views.index),
     path('article/<str:article_id>/', blog.views.show_article),
+    path('classification/<str:name>', blog.views.show_article_as_classification),
     path('wx', wx.views.wx),
     path('forbidzh', blog.views.forbid_zhihu),
     path('file/<str:path>', file.views.big_file_download),
