@@ -7,3 +7,6 @@ tencent_server/SECRET_KEY.py
 *.sqlite3
 
 static
+*.pyc
+uwsgi.log
+uwsgi.pid
