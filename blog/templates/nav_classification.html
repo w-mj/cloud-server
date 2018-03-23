@@ -2,7 +2,7 @@
     {% for classification in nav_classifications %}
         <li class="collection-item">
             <a href="/classification/{{ classification.name }}">{{ classification.name }}</a>
-            <span class="secondary-content">{{ classification.article_number }}</span>
+            <span class="secondary-content">{{ classification.article_set.count }}</span>
         </li>
     {% endfor %}
 </ul>
