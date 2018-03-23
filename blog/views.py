@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from markdown import markdown
 from .models import *
+from django.http import HttpResponseRedirect
 
 
 def forbid_zhihu(request):
     return render(request, 'forbidden_zhihu.html')
+
+
+def index_redirect(request):
+    return HttpResponseRedirect('http://alphamj.cn/')
 
 
 def index(request):
